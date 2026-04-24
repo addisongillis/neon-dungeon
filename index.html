@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Dungeon Inventory Automation Demo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #080b18;
+      color: #f4f4f8;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      color: #ff4df0;
+    }
+
+    h2 {
+      margin-top: 48px;
+      color: #66f6ff;
+    }
+
+    p {
+      color: #d7d7e0;
+      font-size: 18px;
+    }
+
+    .hero {
+      padding: 32px;
+      border: 1px solid #29304a;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #14182b, #101827);
+    }
+
+    .section {
+      margin-top: 36px;
+      padding: 24px;
+      border: 1px solid #29304a;
+      border-radius: 18px;
+      background: #111626;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #333b5c;
+      margin-top: 16px;
+    }
+
+    .note {
+      color: #aab0c6;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <h1>Neon Dungeon Inventory Automation Demo</h1>
+      <p>
+        A storefront-to-operations prototype showing how a customer order can connect to inventory rules and automation logic.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>The Problem</h2>
+      <p>
+        Small businesses often manage sales, inventory, and follow-up work across disconnected tools. That creates manual checking, missed updates, and workflow clutter.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>1. Inventory Tracker</h2>
+      <p>
+        Google Sheets acts as the operational source of truth for product stock, fulfillment rules, reorder thresholds, and low-stock flags.
+      </p>
+      <img src="1.png" alt="Google Sheets inventory tracker for Neon Dungeon products">
+    </section>
+
+    <section class="section">
+      <h2>2. Storefront Prototype</h2>
+      <p>
+        The customer-facing storefront shows merch products, variants, pricing, and fulfillment type.
+      </p>
+      <img src="2.png" alt="Neon Dungeon storefront merch collection">
+    </section>
+
+    <section class="section">
+      <h2>3. Demo Cart</h2>
+      <p>
+        The demo cart shows a customer order for one Neon Dungeon Board Game. This item is treated as venue-stock merchandise, so it is the product used to demonstrate inventory tracking.
+      </p>
+      <img src="3.png" alt="Neon Dungeon demo cart with one board game">
+    </section>
+
+    <section class="section">
+      <h2>4. Inventory Reflection</h2>
+      <p>
+        For the prototype handoff, the order is reflected in the inventory tracker. The board game row tracks stock, protected minimum, pending online orders, available online quantity, reorder threshold, and fulfillment rule.
+      </p>
+      <img src="4.png" alt="Google Sheets board game inventory row">
+    </section>
+
+    <section class="section">
+      <h2>5. Automation Workflow</h2>
+      <p>
+        Make checks the board game inventory data in Google Sheets, aggregates the relevant quantity values, and sends the result to an HTTP endpoint. This represents the operational handoff: once inventory data is checked, the system can trigger a notification, reorder action, or vendor follow-up.
+      </p>
+      <img src="5.png" alt="Make automation workflow for board game inventory check">
+    </section>
+
+    <section class="section">
+      <h2>What This Proves</h2>
+      <p>
+        This prototype demonstrates a complete business workflow pattern: customer-facing interface, spreadsheet-based operations data, inventory rules, and an automation layer for follow-up actions.
+      </p>
+      <p class="note">
+        This is a proof of concept, not a production checkout system. Some handoffs are simulated to show the workflow clearly.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
