@@ -61,6 +61,15 @@
       color: #aab0c6;
       font-size: 16px;
     }
+        ul {
+      color: #d7d7e0;
+      font-size: 18px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
@@ -68,21 +77,42 @@
     <section class="hero">
       <h1>Neon Dungeon Inventory Automation Demo</h1>
       <p>
-        A storefront-to-operations prototype showing how a customer order can connect to inventory rules and automation logic.
+        A proof-of-concept operations system for a fictional merch store.
       </p>
+      <p>In this scenario, Neon Dungeon is an escape room with a new merch line: shirts, mugs, and a custom-made board game based on the unique setting.</p>
+
+<p>For the owner, merch should be exciting. It extends the brand, deepens the guest experience, and creates a new revenue stream. But every new product also adds operational details: stock counts, fulfillment rules, reorder thresholds, protected venue inventory, and follow-up tasks.</p>
+
+<p>The owner did not open an escape room to spend their time tracking inventory.</p>
+
+<p>This prototype shows how those operational details can be modeled in Google Sheets and routed through Make, turning fragmented follow-up work into a clearer workflow.</p>
     </section>
 
     <section class="section">
       <h2>The Problem</h2>
       <p>
-        Small businesses often manage sales, inventory, and follow-up work across disconnected tools. That creates manual checking, missed updates, and workflow clutter.
+        Small businesses often grow by adding new ideas before they have formal systems to support them.</p>
+
+<p>A merch line sounds simple at first: sell a shirt, sell a mug, sell a board game. But the details multiply quickly. Some products are print-on-demand. Some ship from venue stock. Some inventory needs to be protected for in-person guests. Some items need reorder thresholds. Someone still has to notice when action is needed.</p>
+
+<p>Without a clear workflow, the creative part of the business gets pulled toward repetitive operational checking.
       </p>
+    </section>
+
+        <section class="section">
+      <h2>The Prototype</h2>
+      <p>
+        This demo uses three elegant pieces: A customer-facing storefront prototype, a Google Sheets inventory tracker, and a Make automation workflow.</p>
+
+<p>The goal is not to build a production checkout system yet. The goal is to map the workflow, expose the business rules, and show how automation can protect the creative work at the center of the business.</p>
     </section>
 
     <section class="section">
       <h2>1. Inventory Tracker</h2>
       <p>
-        Google Sheets acts as the operational source of truth for product stock, fulfillment rules, reorder thresholds, and low-stock flags.
+        Google Sheets acts as the operational source of truth for product stock, fulfillment rules, reorder thresholds, protected minimums, and low-stock flags.</p>
+
+<p>The sheet separates products by how they should be handled. Shirts and mugs can route to print-on-demand for online orders, while the board game uses venue stock above a protected minimum.
       </p>
       <img src="1.JPG" alt="Google Sheets inventory tracker for Neon Dungeon products">
     </section>
@@ -90,7 +120,9 @@
     <section class="section">
       <h2>2. Storefront Prototype</h2>
       <p>
-        The customer-facing storefront shows merch products, variants, pricing, and fulfillment type.
+        The storefront shows how the merch line appears to a customer: branded products, variant options, prices, and fulfillment labels.</p>
+
+<p>This gives the business owner a visible prototype of the customer experience before investing in production infrastructure.
       </p>
       <img src="2.JPG" alt="Neon Dungeon storefront merch collection">
     </section>
@@ -98,7 +130,9 @@
     <section class="section">
       <h2>3. Demo Cart</h2>
       <p>
-        The demo cart shows a customer order for one Neon Dungeon Board Game. This item is treated as venue-stock merchandise, so it is the product used to demonstrate inventory tracking.
+        The demo cart shows a customer order for one Neon Dungeon Board Game.</p>
+
+<p>The board game is used for the inventory example because it depends on venue stock. That makes it a better test case than print-on-demand products, where online orders would not reduce venue inventory.
       </p>
       <img src="3.JPG" alt="Neon Dungeon demo cart with one board game">
     </section>
@@ -106,7 +140,9 @@
     <section class="section">
       <h2>4. Inventory Reflection</h2>
       <p>
-        For the prototype handoff, the order is reflected in the inventory tracker. The board game row tracks stock, protected minimum, pending online orders, available online quantity, reorder threshold, and fulfillment rule.
+        For the prototype handoff, the sample order is reflected in the inventory tracker.</p>
+
+<p>The board game row tracks the current venue stock, protected minimum, pending online orders, available online quantity, reorder threshold, and fulfillment rule. These are the operational details that need to stay visible as the merch line grows.
       </p>
       <img src="4.JPG" alt="Google Sheets board game inventory row">
     </section>
@@ -114,18 +150,50 @@
     <section class="section">
       <h2>5. Automation Workflow</h2>
       <p>
-        Make checks the board game inventory data in Google Sheets, aggregates the relevant quantity values, and sends the result to an HTTP endpoint. This represents the operational handoff: once inventory data is checked, the system can trigger a notification, reorder action, or vendor follow-up.
+        Make checks the board game inventory data in Google Sheets, aggregates the relevant quantity values, and sends the result to an HTTP endpoint.</p>
+
+<p>This represents the operational handoff: once inventory data is checked, the system can trigger a notification, reorder action, vendor follow-up, or staff message.
       </p>
       <img src="5.JPG" alt="Make automation workflow for board game inventory check">
     </section>
 
-    <section class="section">
+        <section class="section">
       <h2>What This Proves</h2>
       <p>
-        This prototype demonstrates a complete business workflow pattern: customer-facing interface, spreadsheet-based operations data, inventory rules, and an automation layer for follow-up actions.
+        This project demonstrates a workflow pattern that can apply beyond merch inventory.
+      </p>
+      <p>
+        This specific example is based on merchandise sold by an escape room. The larger skill is translating fragmented business operations into clear, repeatable systems.
+      </p>
+      <p>
+        This prototype shows the ability to:
+      </p>
+      <ul>
+        <li>Design a customer-facing interface.</li>
+        <li>Model inventory and fulfillment rules.</li>
+        <li>Use spreadsheets as lightweight operational databases.</li>
+        <li>Connect business data to an automation layer.</li>
+        <li>Explain the workflow visually for non-technical users.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Where This Could Go Next</h2>
+      <p>
+        The same pattern could support low-stock alerts, vendor reorder emails, Discord or SMS staff notifications, escape room booking alerts, equipment inspection logs, customer follow-up messages, and daily operations reports.
+      </p>
+      <p>
+        For a small business, the value is not automation for its own sake. The value is getting routine follow-up out of the owner’s head and into a system that can be checked, improved, and expanded.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Prototype Scope</h2>
+      <p>
+        This is a proof of concept, not a production checkout system.
       </p>
       <p class="note">
-        This is a proof of concept, not a production checkout system. Some handoffs are simulated to show the workflow clearly.
+        Some handoffs are simulated to keep the workflow clear. The goal is to demonstrate the business logic, tool integration, and automation pattern before building production infrastructure.
       </p>
     </section>
   </main>
